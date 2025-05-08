@@ -1,0 +1,55 @@
+ALGORITHM:  DES
+--------------------------------------
+1. Input 8-character plaintext and 8-character key.
+2. Convert plaintext and key to binary (bits).
+3. Apply Initial Permutation (IP) on plaintext.
+4. Split into Left (L) 32 bits and Right (R) 32 bits.
+5. Extract first 48 bits of the key as round key.
+6. For 16 rounds:
+   a. Expand R from 32 to 48 bits (Expansion E table).
+   b. XOR expanded R with round key.
+   c. Pass through S-box (substitution) to get 4 bits.
+   d. XOR with first 4 bits of L.
+   e. Update L = previous R, R = new result.
+7. After 16 rounds, swap L and R.
+8. Apply Final Permutation (FP) on combined 64 bits.
+9. Convert binary back to string — output ciphertext.
+--------------------------------------
+
+FLOWCHART:  DES
+--------------------------------------
+START
+   ↓
+Input plaintext and key (8 characters each)
+   ↓
+Convert plaintext and key to binary
+   ↓
+Apply Initial Permutation (IP)
+   ↓
+Split into Left (L) and Right (R)
+   ↓
+Get first 48 bits of Key
+   ↓
+FOR 16 ROUNDS:
+   ↓
+Expand R (E table)
+   ↓
+XOR (Expanded R and Round Key)
+   ↓
+Substitute using S-Box
+   ↓
+XOR with first 4 bits of L
+   ↓
+Swap L and R
+   ↓
+END FOR
+   ↓
+Swap final L and R
+   ↓
+Apply Final Permutation (FP)
+   ↓
+Convert to Text (Ciphertext)
+   ↓
+END
+--------------------------------------
+

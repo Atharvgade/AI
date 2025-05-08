@@ -1,0 +1,21 @@
+--------------------------------------------------------------
+                         RSA ALGORITHM
+--------------------------------------------------------------
+
+1. **Key Generation**:
+   - Choose two distinct large prime numbers, p and q.
+   - Calculate n = p * q (modulus for public and private keys).
+   - Calculate phi(n) = (p - 1) * (q - 1).
+   - Choose public exponent e such that 1 < e < phi(n) and gcd(e, phi(n)) = 1.
+   - Calculate private exponent d such that (d * e) % phi(n) = 1.
+   - Public Key = (e, n)
+   - Private Key = (d, n)
+
+2. **Encryption**:
+   - Ciphertext C = Plaintext P^e % n (using the public key (e, n)).
+
+3. **Decryption**:
+   - Plaintext P = Ciphertext C^d % n (using the private key (d, n)).
+
+--------------------------------------------------------------
+

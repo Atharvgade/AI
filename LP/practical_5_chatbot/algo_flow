@@ -1,0 +1,64 @@
+algorithm
+Start the program.
+
+Display: "Welcome to MovieBot!"
+
+Loop:
+
+Take input from user (their message).
+
+Use pattern matching to generate a response.
+
+Display the chatbot response.
+
+If user's input contains "book":
+
+Ask movie name.
+
+Ask number of tickets.
+
+Ask preferred showtime.
+
+Calculate total price (tickets × ₹150).
+
+Display booking confirmation and total amount.
+
+If user's input contains "bye", "exit", or "goodbye":
+
+Exit the loop.
+
+End the program.
+
+flowchart
+[Start]
+   ↓
+Display "Welcome to MovieBot!"
+   ↓
+[Input: User message]
+   ↓
+[Match input with patterns]
+   ↓
+Display Chatbot Response
+   ↓
+┌────────────────────────────────────────────────┐
+│Is message related to "book tickets"?            │
+│      └──> [Yes]                                 │
+│             ↓                                   │
+│     Ask Movie Name, Tickets, Showtime           │
+│     Calculate Total = tickets × ₹150             │
+│     Display Booking Confirmation                │
+│                                                  │
+│      └──> [No]                                   │
+└────────────────────────────────────────────────┘
+   ↓
+┌────────────────────────────────────────────┐
+│Is message "bye"/"exit"/"goodbye"?            │
+│      └──> [Yes]                              │
+│             ↓                                │
+│          [End]                               │
+│      └──> [No]                               │
+└────────────────────────────────────────────┘
+   ↓
+Loop back to [Input: User message]
+
+

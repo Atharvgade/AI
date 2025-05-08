@@ -1,0 +1,90 @@
+algorithm
+function A_Star(start, goal):
+    open_list = priority queue
+    closed_list = empty set
+    g(start) = 0
+    h(start) = heuristic(start, goal)
+    add start to open_list
+
+    while open_list not empty:
+        current = node with lowest f = g + h in open_list
+        if current == goal:
+            return reconstruct_path(current)
+
+        remove current from open_list
+        add current to closed_list
+
+        for each neighbor of current:
+            if neighbor is valid and not in closed_list:
+                g(neighbor) = g(current) + cost
+                h(neighbor) = heuristic(neighbor, goal)
+                set neighbor.parent = current
+                add neighbor to open_list
+
+    return empty path
+
+flowchart
++-------------------------------+
+|           START                |
++-------------------------------+
+            ↓
++-------------------------------+
+| Initialize open_list (with     |
+| start node), closed_list (empty)|
++-------------------------------+
+            ↓
++-------------------------------+
+| WHILE open_list NOT empty:     |
++-------------------------------+
+            ↓
++-------------------------------+
+| Pop node with lowest f = g + h |
+| from open_list                 |
++-------------------------------+
+            ↓
++-------------------------------+
+| IF current node == goal:      |
++-------------------------------+
+            ↓
++-------------------------------+
+| RECONSTRUCT PATH and RETURN   |
++-------------------------------+
+            ↓
++-------------------------------+
+| ELSE:                          |
++-------------------------------+
+            ↓
++-------------------------------+
+| Add current node to closed_list|
++-------------------------------+
+            ↓
++-------------------------------+
+| FOR each neighbor:            |
++-------------------------------+
+            ↓
++-------------------------------+
+| IF neighbor is valid and not   |
+| in closed_list:                |
++-------------------------------+
+            ↓
++-------------------------------+
+| Calculate g, h, f             |
++-------------------------------+
+            ↓
++-------------------------------+
+| Set parent = current          |
++-------------------------------+
+            ↓
++-------------------------------+
+| Add neighbor to open_list     |
++-------------------------------+
+            ↓
++-------------------------------+
+| END WHILE                     |
++-------------------------------+
+            ↓
++-------------------------------+
+| RETURN "No Path Found"        |
++-------------------------------+
+
+

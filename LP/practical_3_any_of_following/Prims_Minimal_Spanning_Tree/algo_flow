@@ -1,0 +1,68 @@
+algorith 
+prim_mst(graph):
+    n = number of vertices in graph
+    key[] = array of size n, initialized to infinity (∞)
+    parent[] = array of size n, initialized to None (no parent)
+    mstSet[] = array of size n, initialized to False (not yet included in MST)
+
+    key[0] = 0  // Start with the first node
+    parent[0] = -1  // First node has no parent
+
+    for i = 0 to n-1:
+        u = vertex with minimum key value that is not yet included in MST
+        Add u to MST (mark as included)
+
+        for each neighbor v of u:
+            if v is not in MST and graph[u][v] < key[v]:
+                Update key[v] = graph[u][v] (update the minimum edge weight)
+                Update parent[v] = u (set parent of v to u)
+
+    // Print the MST
+    for i = 1 to n-1:
+        print "Edge:", parent[i], "-", i, "Weight:", graph[i][parent[i]]
+
+//flowchart
++---------------------------+
+|       Start                |
++---------------------------+
+           |
+           v
++---------------------------+
+| Initialize key[],         |
+| parent[], mstSet[]         |
++---------------------------+
+           |
+           v
++---------------------------+
+| While there are unprocessed|
+| nodes in graph?            |
++---------------------------+
+           |
+       Yes | No
+           |
+           v
++---------------------------+
+| Find node u with min key  |
++---------------------------+
+           |
+           v
++---------------------------+
+| Add u to MST (mark as     |
+| processed)                |
++---------------------------+
+           |
+           v
++---------------------------+
+| For each neighbor v of u, |
+| update key[v] and         |
+| parent[v] if necessary    |
++---------------------------+
+           |
+           v
++---------------------------+
+| Print MST and exit        |
++---------------------------+
+           |
+           v
+       End
+

@@ -1,0 +1,36 @@
+-------------------------------------------------------------
+                AES Encryption Algorithm
+-------------------------------------------------------------
+
+1. **Key Expansion**:
+   - Input: 128-bit, 192-bit, or 256-bit key.
+   - Output: Generate round keys from the original key.
+
+2. **Initial Round** (Before main rounds):
+   - AddRoundKey: XOR the plaintext with the first round key.
+
+3. **Main Rounds (10 rounds for AES-128)**:
+   For each round (except the final round):
+   
+   a) **SubBytes**: 
+      - Apply the S-box substitution to each byte in the state (substitution step).
+   
+   b) **ShiftRows**: 
+      - Perform a leftward shift of the rows in the 4x4 state matrix.
+
+   c) **MixColumns**: 
+      - Mix the columns of the 4x4 state matrix to spread the bytes.
+   
+   d) **AddRoundKey**:
+      - XOR the current state with the round key derived from key expansion.
+
+4. **Final Round (Round 10)**:
+   - **SubBytes**: Substitute bytes with S-box.
+   - **ShiftRows**: Shift the rows in the state.
+   - **AddRoundKey**: XOR the state with the final round key (no MixColumns).
+
+5. **Output Ciphertext**:
+   - After the final round, the resulting state is the ciphertext.
+
+-------------------------------------------------------------
+
